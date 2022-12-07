@@ -23,6 +23,8 @@ public class UserCarListing extends Fragment {
             Bundle savedInstanceState
     ) {
 
+        //populate user car's listing here
+
         binding = CarlistingOfUserBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
