@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.wealer.R;
 
-public class listingDetail extends AppCompatActivity {
+public class carDetail extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.listingdetail_activity);
+        setContentView(R.layout.cardetail_activity);
     }
 }
