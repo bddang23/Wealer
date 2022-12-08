@@ -17,20 +17,12 @@
         tools:targetApi="31">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-<<<<<<< HEAD
             android:value="AIzaSyAl9DWA2u1bs0JZsRjmE-mk3HtzD2NS0BQ" />
-=======
-            android:value="${MAPS_API_KEY}" />
->>>>>>> f647f3c41b773a6c17fb343be37a6c66477e39a5
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         <activity
-<<<<<<< HEAD
-            android:name=".userListing.listingDetail"
-=======
             android:name=".userListing.carDetail"
->>>>>>> f647f3c41b773a6c17fb343be37a6c66477e39a5
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -38,16 +30,13 @@
         </activity>
         <activity
             android:name=".DashBoard.mapListing"
-<<<<<<< HEAD
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-=======
-            android:exported="false">
->>>>>>> f647f3c41b773a6c17fb343be37a6c66477e39a5
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -69,15 +58,11 @@
         <activity
             android:name=".LoginSignUp.loginscreen"
             android:exported="true">
-<<<<<<< HEAD
-
-=======
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
->>>>>>> f647f3c41b773a6c17fb343be37a6c66477e39a5
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -96,11 +81,6 @@
         <activity
             android:name=".userListing.manageListing"
             android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
 
             <meta-data
                 android:name="android.app.lib_name"

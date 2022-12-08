@@ -44,8 +44,8 @@
         android:layout_height="wrap_content"
         android:text="Description:"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine" />
+        app:layout_constraintBottom_toTopOf="@+id/edtDesc"
+        app:layout_constraintStart_toStartOf="@+id/edtDesc" />
 
     <TextView
         android:id="@+id/textView21"
@@ -53,8 +53,8 @@
         android:layout_height="wrap_content"
         android:text="Link to Image:"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName5"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName5" />
+        app:layout_constraintBottom_toTopOf="@+id/edtLink"
+        app:layout_constraintStart_toStartOf="@+id/edtLink" />
 
     <TextView
         android:id="@+id/textView22"
@@ -62,8 +62,8 @@
         android:layout_height="wrap_content"
         android:text="Price:"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumberDecimal"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal" />
+        app:layout_constraintBottom_toTopOf="@+id/edtPrice"
+        app:layout_constraintStart_toStartOf="@+id/edtPrice" />
 
     <TextView
         android:id="@+id/textView23"
@@ -71,8 +71,8 @@
         android:layout_height="wrap_content"
         android:text="Location:"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPostalAddress"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPostalAddress" />
+        app:layout_constraintBottom_toTopOf="@+id/edtLocation"
+        app:layout_constraintStart_toStartOf="@+id/edtLocation" />
 
     <EditText
         android:id="@+id/edtMake"
@@ -96,7 +96,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edtMake" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/edtDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -107,35 +107,34 @@
         app:layout_constraintTop_toBottomOf="@+id/edtModel" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/edtLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
+        app:layout_constraintStart_toStartOf="@+id/edtDesc"
+        app:layout_constraintTop_toBottomOf="@+id/edtDesc" />
 
     <EditText
-        android:id="@+id/editTextTextPostalAddress"
+        android:id="@+id/edtLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="textPostalAddress"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+        app:layout_constraintStart_toStartOf="@+id/edtLink"
+        app:layout_constraintTop_toBottomOf="@+id/edtLink" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal"
+        android:id="@+id/edtPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="numberDecimal"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPostalAddress"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPostalAddress" />
+        app:layout_constraintStart_toStartOf="@+id/edtLocation"
+        app:layout_constraintTop_toBottomOf="@+id/edtLocation" />
 
     <Button
         android:id="@+id/button5"
@@ -145,5 +144,5 @@
         android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
+        app:layout_constraintTop_toBottomOf="@+id/edtPrice" />
 </androidx.constraintlayout.widget.ConstraintLayout>
