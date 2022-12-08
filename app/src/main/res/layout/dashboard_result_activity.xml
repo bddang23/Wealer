@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Dashboard"
+        android:text="Result"
         android:textColor="#209525"
         android:textSize="65dp"
         app:layout_constraintEnd_toEndOf="parent"
