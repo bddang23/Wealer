@@ -10,7 +10,7 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-smallcaps"
         android:text="Search"
         android:textColor="#209525"
@@ -24,8 +24,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="24dp"
         android:text="Make: "
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
@@ -35,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
         android:text="Model: "
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -44,6 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
         android:text="Max Price: "
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/textView13"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
@@ -53,6 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
         android:text="Min Price: "
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
@@ -63,6 +67,7 @@
         android:layout_marginTop="24dp"
         android:backgroundTint="#4CAF50"
         android:text="Search "
+        app:layout_constraintBottom_toTopOf="@+id/btnManageListing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtSearchMinPrices" />
@@ -71,13 +76,13 @@
         android:id="@+id/btnManageListing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
         android:backgroundTint="#2196F3"
         android:text="Manage My Listing"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnLogOut"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSearch" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnLogOut"
@@ -85,6 +90,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#C12B20"
         android:text="Log Out"
+        app:layout_constraintBottom_toBottomOf="@+id/btnManageListing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnManageListing"
@@ -99,6 +105,7 @@
         android:hint="Make"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView10"
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toTopOf="@+id/textView10" />
@@ -111,6 +118,7 @@
         android:hint="Model"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView12"
         app:layout_constraintStart_toStartOf="@+id/edtSearchMake"
         app:layout_constraintTop_toTopOf="@+id/textView12" />
@@ -123,6 +131,7 @@
         android:hint="00,000"
         android:inputType="numberSigned"
         android:minHeight="48dp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView13"
         app:layout_constraintStart_toStartOf="@+id/edtSearchMaxMiles"
         app:layout_constraintTop_toTopOf="@+id/textView13" />
@@ -135,6 +144,7 @@
         android:hint="00,000"
         android:inputType="numberSigned"
         android:minHeight="48dp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView16"
         app:layout_constraintStart_toStartOf="@+id/edtSearchModel"
         app:layout_constraintTop_toTopOf="@+id/textView16" />
@@ -145,6 +155,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
         android:text="Min Miles: "
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/textView16"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
@@ -154,6 +165,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
         android:text="Max Miles: "
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/textView12"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
@@ -165,6 +177,7 @@
         android:hint="0.0"
         android:inputType="numberDecimal"
         android:minHeight="48dp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView14"
         app:layout_constraintStart_toStartOf="@+id/edtSearchMinMiles"
         app:layout_constraintTop_toTopOf="@+id/textView14"
@@ -178,6 +191,7 @@
         android:hint="0.0"
         android:inputType="numberDecimal"
         android:minHeight="48dp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView24"
         app:layout_constraintStart_toStartOf="@+id/edtSearchMaxPrices"
         app:layout_constraintTop_toTopOf="@+id/textView24" />

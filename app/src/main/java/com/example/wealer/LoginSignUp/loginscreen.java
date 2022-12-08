@@ -53,7 +53,7 @@ public class loginscreen extends AppCompatActivity {
         btnGoToSignUp = findViewById(R.id.btnGoToSignUp);
 
         // Wake up the back end
-        hello();
+//        hello();
 
         // When the login button is clicked,
         btnLogin.setOnClickListener(view -> {
@@ -83,12 +83,12 @@ public class loginscreen extends AppCompatActivity {
      * All this does is make a call to the /hello route of the back end to wake it up before the first
      * login attempt.
      */
-    public void hello() {
-        final String apiLink = "https://project3-ceparker.onrender.com/hello";
-
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, apiLink, null, response-> {}, error-> {});
-        queue.add(request);
-    }
+//    public void hello() {
+//        final String apiLink = "https://project3-ceparker.onrender.com/hello";
+//
+//        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, apiLink, null, response-> {}, error-> {});
+//        queue.add(request);
+//    }
 
     public void fetchUsers() {
         final String apiLink = "https://project3-ceparker.onrender.com/users";
@@ -133,6 +133,7 @@ public class loginscreen extends AppCompatActivity {
         // Make a post request to the server
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, apiLink, new JSONObject(body),
                 response->{
+
                     try {
                         // If the response contains the attribute "message",
                         if (response.has("message")) {
@@ -141,7 +142,7 @@ public class loginscreen extends AppCompatActivity {
                             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
                         }
                         // Otherwise, if the response contains the attribute "username",
-                        else if (response.has("username")) {
+                        else if (response.has("user")) {
                             // The login was successful. Store the corresponding username in SharedPreferences
                             // and start the dashboard activity.
 
@@ -156,6 +157,7 @@ public class loginscreen extends AppCompatActivity {
 
                     } catch (JSONException e) {
                         // If an error occurred in the login process, notify the user
+                        Log.d("MyAPP", e.getMessage());
                         e.printStackTrace();
                         Toast.makeText(this, "An error occurred", Toast.LENGTH_SHORT).show();
                     }
@@ -163,6 +165,7 @@ public class loginscreen extends AppCompatActivity {
                 },
                 error-> {
                     // If an error occurred in the login process, notify the user
+                    Log.d("MyAPP", error.getMessage());
                     Toast.makeText(this, "An error occurred", Toast.LENGTH_SHORT).show();
                 });
 
