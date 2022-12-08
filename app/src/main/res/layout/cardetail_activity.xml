@@ -136,6 +136,16 @@
         app:layout_constraintStart_toStartOf="@+id/edtLocation"
         app:layout_constraintTop_toBottomOf="@+id/edtLocation" />
 
+    <EditText
+        android:id="@+id/edtMiles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="@+id/edtPrice"
+        app:layout_constraintTop_toBottomOf="@+id/edtPrice" />
+
     <Button
         android:id="@+id/button5"
         android:layout_width="wrap_content"
@@ -144,5 +154,13 @@
         android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPrice" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Miles"
+        app:layout_constraintStart_toStartOf="@+id/edtPrice"
         app:layout_constraintTop_toBottomOf="@+id/edtPrice" />
 </androidx.constraintlayout.widget.ConstraintLayout>
