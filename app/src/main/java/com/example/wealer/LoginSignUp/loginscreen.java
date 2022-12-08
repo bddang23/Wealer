@@ -52,7 +52,6 @@ public class loginscreen extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         btnGoToSignUp = findViewById(R.id.btnGoToSignUp);
 
-        // Wake up the back end
 //        hello();
 
         // When the login button is clicked,
@@ -79,10 +78,7 @@ public class loginscreen extends AppCompatActivity {
         });
     }
 
-    /**
-     * All this does is make a call to the /hello route of the back end to wake it up before the first
-     * login attempt.
-     */
+
 //    public void hello() {
 //        final String apiLink = "https://project3-ceparker.onrender.com/hello";
 //
@@ -90,27 +86,27 @@ public class loginscreen extends AppCompatActivity {
 //        queue.add(request);
 //    }
 
-    public void fetchUsers() {
-        final String apiLink = "https://project3-ceparker.onrender.com/users";
-
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, apiLink, null,
-                response->{
-                    try {
-                        Object result1 = response.get("users");
-                        Log.d("MYAPP", result1.toString());
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        Log.d("MYAPP", "An error occurred in test: " + e.toString());
-                    }
-
-                },
-                error-> {
-                    Log.d("MYAPP", "An error occurred: " + error);
-                });
-
-        queue.add(request);
-    }
+//    public void fetchUsers() {
+//        final String apiLink = "https://project3-ceparker.onrender.com/users";
+//
+//        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, apiLink, null,
+//                response->{
+//                    try {
+//                        Object result1 = response.get("users");
+//                        Log.d("MYAPP", result1.toString());
+//
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                        Log.d("MYAPP", "An error occurred in test: " + e.toString());
+//                    }
+//
+//                },
+//                error-> {
+//                    Log.d("MYAPP", "An error occurred: " + error);
+//                });
+//
+//        queue.add(request);
+//    }
 
     /**
      * Attempts to login to the server with a given username and password. If the login was successful,
@@ -141,14 +137,15 @@ public class loginscreen extends AppCompatActivity {
                             String message = response.getString("message");
                             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
                         }
-                        // Otherwise, if the response contains the attribute "username",
+                        // Otherwise, if the response contains the attribute "user",
                         else if (response.has("user")) {
                             // The login was successful. Store the corresponding username in SharedPreferences
                             // and start the dashboard activity.
 
-                            // Get the shared preferences and add the corresponding username
+                            // Get the shared preferences and add the corresponding userID
+                            String userID = response.getJSONObject("user").get("_id").toString();
                             sharedPreferences = getSharedPreferences("com.example.wealer", MODE_PRIVATE);
-                            sharedPreferences.edit().putString("activeUsername", username);
+                            sharedPreferences.edit().putString("activeUserID", userID);
 
                             // Start the dashboard activity
                             intent = new Intent(this, DashBoard.class);
