@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -60,24 +61,30 @@ public class mapListing extends AppCompatActivity implements OnMapReadyCallback 
         txtMile = findViewById(R.id.txtMile);
         txtDescription = findViewById(R.id.txtDescription);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapView);
-
+        //get car id from intent
         Intent intent =  getIntent();
         carID = intent.getStringExtra("carID");
-
+        //get userID from sharedPref
         SharedPreferences sharedPref = getSharedPreferences("userID", Context.MODE_PRIVATE);
         String userID = sharedPref.getString("userID", null);
+        //if the user is not logged in then send them back to the login screen
+        //otherwise call fetchData() function
         if (userID == null){
             Intent login = new Intent(this, loginscreen.class);
             startActivity(login);
         }else{
             fetchData();
         }
+        //opens the default browser with the link to the images of the car
         btnViewImage.setOnClickListener(view -> {
             if(imageURL != null){
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(imageURL)));
             }
         });
+        //opens the default email app and starts an email to the user of a listed car
+        //set the subject to "Wealer Listing"
         btnEmail.setOnClickListener(view -> {
+             //get request to get the email address based on userID
              String url = "https://project3-ceparker.onrender.com/users/";
              JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url + owner,null,
                      response -> {
@@ -95,28 +102,35 @@ public class mapListing extends AppCompatActivity implements OnMapReadyCallback 
                                  e.printStackTrace();
                              }
                      },error -> {
-
+                 Toast.makeText(this, "An error occurred", Toast.LENGTH_SHORT).show();
              });
+             queue.add(request);
         });
     }
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
+        //get the map
         map = googleMap;
+        //get the cords for the marker
         String[] cords = ownerAddress.split(",");
         LatLng car = new LatLng(Double.parseDouble(cords[0]), Double.parseDouble(cords[1]));
+        //add marker to map
         map.addMarker(new MarkerOptions()
                 .title(make + " " + model)
                 .snippet(price)
                 .position(car));
+        //move map to the cords
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(car,13));
     }
-
+    //method for get request
     public void fetchData(){
-      String url = "https://project3-ceparker.onrender.com/car/";
-      JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,url + carID,null,
+        //api string
+        String url = "https://project3-ceparker.onrender.com/car/";
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,url + carID,null,
               response->{
                      try {
+                         //populate textfields
                              JSONObject jsonCar = response.getJSONObject("message");
                              ownerAddress = jsonCar.getString("ownerAddress");
                              owner = jsonCar.getString("owner");
@@ -129,12 +143,11 @@ public class mapListing extends AppCompatActivity implements OnMapReadyCallback 
                              txtPrice.setText(txtPrice.getText() + " " + jsonCar.getString("price"));
                              txtMile.setText(txtMile.getText() + " " + jsonCar.getString("miles"));
                              txtDescription.setText(jsonCar.getString("description"));
-
                      } catch (JSONException e) {
                          e.printStackTrace();
                      }
               },error->{
-
+          Toast.makeText(this, "An error occurred", Toast.LENGTH_SHORT).show();
       });
         queue.add(request);
     }
