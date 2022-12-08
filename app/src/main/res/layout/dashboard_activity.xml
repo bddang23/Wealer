@@ -12,9 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Dashboard"
+        android:text="Search"
         android:textColor="#209525"
-        android:textSize="65dp"
+        android:textSize="65sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -39,15 +39,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:text="Max Miles: "
-        app:layout_constraintStart_toStartOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-    <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,97 +47,139 @@
         app:layout_constraintStart_toStartOf="@+id/textView13"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
-    <SeekBar
-        android:id="@+id/seekBar2"
-        android:layout_width="265dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/textView13"
-        app:layout_constraintTop_toTopOf="@+id/textView13"
-        tools:layout_editor_absoluteX="122dp" />
-
-    <SeekBar
-        android:id="@+id/seekBar3"
-        android:layout_width="265dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/textView14"
-        app:layout_constraintStart_toEndOf="@+id/textView14"
-        app:layout_constraintStart_toStartOf="@+id/seekBar2"
-        app:layout_constraintTop_toTopOf="@+id/textView14" />
-
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="45dp"
+        android:text="Min Price: "
+        app:layout_constraintStart_toStartOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:backgroundTint="#4CAF50"
         android:text="Search "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar3" />
-
-    <TextView
-        android:id="@+id/txtMaxMiles"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0 Miles"
-        app:layout_constraintEnd_toEndOf="@+id/seekBar2"
-        app:layout_constraintStart_toStartOf="@+id/seekBar2"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar2" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0 Dollars"
-        app:layout_constraintEnd_toEndOf="@+id/seekBar3"
-        app:layout_constraintHorizontal_bias="0.531"
-        app:layout_constraintStart_toStartOf="@+id/seekBar3"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar3" />
+        app:layout_constraintTop_toBottomOf="@+id/edtSearchMinPrices" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnManageListing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="#2196F3"
         android:text="Manage My Listing"
-        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintEnd_toStartOf="@+id/btnLogOut"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSearch" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnLogOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#C12B20"
         android:text="Log Out"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toTopOf="@+id/button3" />
+        app:layout_constraintStart_toEndOf="@+id/btnManageListing"
+        app:layout_constraintTop_toTopOf="@+id/btnManageListing" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/edtSearchMake"
         android:layout_width="265dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:ems="10"
         android:hint="Make"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView10"
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toTopOf="@+id/textView10" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/edtSearchModel"
         android:layout_width="265dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Model"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView12"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
+        app:layout_constraintStart_toStartOf="@+id/edtSearchMake"
         app:layout_constraintTop_toTopOf="@+id/textView12" />
+
+    <EditText
+        android:id="@+id/edtSearchMinMiles"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="00,000"
+        android:inputType="numberSigned"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView13"
+        app:layout_constraintStart_toStartOf="@+id/edtSearchMaxMiles"
+        app:layout_constraintTop_toTopOf="@+id/textView13" />
+
+    <EditText
+        android:id="@+id/edtSearchMaxMiles"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="00,000"
+        android:inputType="numberSigned"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView16"
+        app:layout_constraintStart_toStartOf="@+id/edtSearchModel"
+        app:layout_constraintTop_toTopOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:text="Min Miles: "
+        app:layout_constraintStart_toStartOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:text="Max Miles: "
+        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <EditText
+        android:id="@+id/edtSearchMaxPrices"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="0.0"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView14"
+        app:layout_constraintStart_toStartOf="@+id/edtSearchMinMiles"
+        app:layout_constraintTop_toTopOf="@+id/textView14"
+        app:layout_constraintVertical_bias="0.482" />
+
+    <EditText
+        android:id="@+id/edtSearchMinPrices"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="0.0"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView24"
+        app:layout_constraintStart_toStartOf="@+id/edtSearchMaxPrices"
+        app:layout_constraintTop_toTopOf="@+id/textView24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
