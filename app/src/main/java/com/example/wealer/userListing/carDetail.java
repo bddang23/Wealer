@@ -102,7 +102,7 @@ public class carDetail extends AppCompatActivity {
 
     public void editCar(){
         //api string
-        final String apiLink = "https://project3-ceparker.onrender.com/editcar/:userID/" + carID;
+        final String apiLink = "https://project3-ceparker.onrender.com/editcar/" + userID + "/" + carID;
         //body of post request
         HashMap<String, String> body = new HashMap<String, String>();
         body.put("make", edtMake.getText().toString());
