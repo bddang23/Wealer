@@ -142,21 +142,25 @@ public class signupscreen extends AppCompatActivity {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, apiLink, new JSONObject(body),
                 response->{
                     try {
-                        // Regardless of success or failure, the server will return an object with the
-                        // attribute "message". If the message is "Successful Registration", username
-                        // in SharedPreference and start the dashboard activity
+                        // If the response contains the attribute "message",
+                        if (response.has("message")) {
+                            // The registration was not successful. Record the message and display it to the user
+                            String message = response.getString("message");
+                            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+                        }
+                        // Otherwise, if the response contains the attribute "user",
+                        else if (response.has("user")) {
+                            // The registration was successful. Store the corresponding username in SharedPreferences
+                            // and start the dashboard activity.
 
-                        if (response.getString("message").equals("Successful Registration")) {
-                            // Get the shared preferences and add the corresponding username
+                            // Get the shared preferences and add the corresponding userID
+                            String userID = response.getJSONObject("user").get("_id").toString();
                             sharedPreferences = getSharedPreferences("com.example.wealer", MODE_PRIVATE);
-                            sharedPreferences.edit().putString("activeUsername", username);
+                            sharedPreferences.edit().putString("activeUserID", userID);
 
                             // Start the dashboard activity
                             intent = new Intent(this, DashBoard.class);
                             startActivity(intent);
-                        }
-                        else {
-                            Toast.makeText(this, response.getString("message"), Toast.LENGTH_SHORT).show();
                         }
 
                     } catch (JSONException e) {
