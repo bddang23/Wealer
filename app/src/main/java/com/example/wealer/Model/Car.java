@@ -8,8 +8,9 @@ public class Car {
     private String imageLink;
     private float price;
     private String address;
+    private String ID;
 
-    public Car(String make, String model, int miles, String description, String imageLink, float price, String address) {
+    public Car(String make, String model, int miles, String description, String imageLink, float price, String address,String ID) {
         this.make = make;
         this.model = model;
         this.miles = miles;
@@ -17,6 +18,7 @@ public class Car {
         this.imageLink = imageLink;
         this.price = price;
         this.address = address;
+        this.ID = ID;
     }
 
     public String getMake() {
@@ -74,4 +76,8 @@ public class Car {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public String getID() {return ID;}
+
+    public void setID(String ID) {this.ID = ID;}
 }

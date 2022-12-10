@@ -65,8 +65,8 @@ public class mapListing extends AppCompatActivity implements OnMapReadyCallback 
         Intent intent =  getIntent();
         carID = intent.getStringExtra("carID");
         //get userID from sharedPref
-        SharedPreferences sharedPref = getSharedPreferences("userID", Context.MODE_PRIVATE);
-        String userID = sharedPref.getString("userID", null);
+        SharedPreferences sharedPref = getSharedPreferences("com.example.wealer", Context.MODE_PRIVATE);
+        String userID = sharedPref.getString("activeUserID", null);
         //if the user is not logged in then send them back to the login screen
         //otherwise call fetchData() function
         if (userID == null){

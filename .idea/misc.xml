@@ -3,13 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/bddang/StudioProjects/Wealer/app/src/main/res/layout/dashboard_activity.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/bddang/StudioProjects/Wealer/app/src/main/res/layout/dashboard_result_activity.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/bddang/StudioProjects/Wealer/app/src/main/res/layout/login_screen_activity.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/bddang/StudioProjects/Wealer/app/src/main/res/layout/signupscreen_activity.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/hawki/OneDrive/Desktop/CS 403/Projects/Final Project Clones/Wealer/app/src/main/res/layout/dashboard_activity.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/hawki/OneDrive/Desktop/CS 403/Projects/Final Project Clones/Wealer/app/src/main/res/layout/login_screen_activity.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/hawki/OneDrive/Desktop/CS 403/Projects/Final Project Clones/Wealer/app/src/main/res/layout/signupscreen_activity.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/tanne/OneDrive/Desktop/Final/app/src/main/res/layout/activity_manage_listing.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/tanne/OneDrive/Desktop/Final/app/src/main/res/layout/car_listing_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/tanne/OneDrive/Desktop/Final/app/src/main/res/layout/car_results_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/tanne/OneDrive/Desktop/Final/app/src/main/res/layout/cardetail_activity.xml" value="0.2" />
+        <entry key="..\:/Users/tanne/OneDrive/Desktop/Final/app/src/main/res/layout/carlisting_of_user.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/tanne/OneDrive/Desktop/Final/app/src/main/res/layout/content_manage_listing.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/tanne/OneDrive/Desktop/Final/app/src/main/res/layout/dashboard_activity.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/tanne/OneDrive/Desktop/Final/app/src/main/res/layout/dashboard_result_activity.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/tanne/OneDrive/Desktop/Final/app/src/main/res/layout/listingdetail_activity.xml" value="0.1" />
+        <entry key="..\:/Users/tanne/OneDrive/Desktop/Final/app/src/main/res/layout/login_screen_activity.xml" value="0.2351851851851852" />
+        <entry key="..\:/Users/tanne/OneDrive/Desktop/Final/app/src/main/res/layout/map_listing_activity.xml" value="0.1" />
+        <entry key="..\:/Users/tanne/OneDrive/Desktop/Final/app/src/main/res/layout/signupscreen_activity.xml" value="0.2" />
       </map>
     </option>
   </component>

@@ -17,6 +17,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.wealer.DashBoard.DashBoard;
 import com.example.wealer.R;
+import com.example.wealer.userListing.UserCarListing;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,6 +31,7 @@ import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.util.HashMap;
 
+import com.example.wealer.userListing.manageListing;
 import javax.net.ssl.HttpsURLConnection;
 
 public class loginscreen extends AppCompatActivity {
@@ -40,12 +42,29 @@ public class loginscreen extends AppCompatActivity {
     Intent intent;
     SharedPreferences sharedPreferences;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_screen_activity);
 
         queue = Volley.newRequestQueue(this);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         edtLoginUsername = findViewById(R.id.edtLoginUsername);
         edtLoginPassword = findViewById(R.id.edtLoginPassword);
@@ -143,9 +162,10 @@ public class loginscreen extends AppCompatActivity {
                             // and start the dashboard activity.
 
                             // Get the shared preferences and add the corresponding userID
-                            String userID = response.getJSONObject("user").get("_id").toString();
+                            String userID = response.getJSONObject("user").getString("_id");
                             sharedPreferences = getSharedPreferences("com.example.wealer", MODE_PRIVATE);
                             sharedPreferences.edit().putString("activeUserID", userID);
+
 
                             // Start the dashboard activity
                             intent = new Intent(this, DashBoard.class);
@@ -162,7 +182,7 @@ public class loginscreen extends AppCompatActivity {
                 },
                 error-> {
                     // If an error occurred in the login process, notify the user
-                    Log.d("MyAPP", error.getMessage());
+                    Log.d("MyAPP", error.getMessage()+"");
                     Toast.makeText(this, "An error occurred", Toast.LENGTH_SHORT).show();
                 });
 
