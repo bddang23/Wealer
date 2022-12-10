@@ -47,8 +47,9 @@ public class carDetail extends AppCompatActivity {
         edtPrice = findViewById(R.id.edtPrice);
         edtMiles = findViewById(R.id.edtMiles);
         btnSave = findViewById(R.id.button5);
-        SharedPreferences sharedPref = getSharedPreferences("userID", Context.MODE_PRIVATE);
-        userID = sharedPref.getString("userID", null);
+        SharedPreferences sharedPref = getSharedPreferences("com.example.wealer", Context.MODE_PRIVATE);
+        userID = sharedPref.getString("activeUserID", null);
+
         //get carID from intent
         Intent i = getIntent();
         carID = i.getStringExtra("carID");

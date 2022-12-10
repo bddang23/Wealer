@@ -57,8 +57,7 @@ public class DashBoard extends AppCompatActivity {
         if(!edtSearchModel.getText().toString().isEmpty())
             intent.putExtra("model",edtSearchModel.getText().toString().trim());
 
-        if(!edtSearchMinMile.getText().toString().isEmpty())
-            intent.putExtra("minMile",edtSearchMinMile.getText().toString().trim());
+
 
         if(!edtSearchMaxMile.getText().toString().isEmpty())
             intent.putExtra("maxMile",edtSearchMaxMile.getText().toString().trim());
@@ -76,7 +75,7 @@ public class DashBoard extends AppCompatActivity {
         edtSearchMake =findViewById(R.id.edtSearchMake);
         edtSearchModel =findViewById(R.id.edtSearchModel);
         edtSearchMaxMile =findViewById(R.id.edtSearchMaxMiles);
-        edtSearchMinMile =findViewById(R.id.edtSearchMinMiles);
+
         edtSearchMaxPrice =findViewById(R.id.edtSearchMaxPrices);
         edtSearchMinPrice =findViewById(R.id.edtSearchMinPrices);
 
