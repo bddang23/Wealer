@@ -156,7 +156,7 @@ public class signupscreen extends AppCompatActivity {
                             // Get the shared preferences and add the corresponding userID
                             String userID = response.getJSONObject("user").get("_id").toString();
                             sharedPreferences = getSharedPreferences("com.example.wealer", MODE_PRIVATE);
-                            sharedPreferences.edit().putString("activeUserID", userID);
+                            sharedPreferences.edit().putString("activeUserID", userID).apply();
 
                             // Start the dashboard activity
                             intent = new Intent(this, DashBoard.class);
