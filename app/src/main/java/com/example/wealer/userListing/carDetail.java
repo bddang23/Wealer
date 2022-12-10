@@ -85,6 +85,7 @@ public class carDetail extends AppCompatActivity {
         body.put("model", edtModel.getText().toString());
         body.put("miles", edtMiles.getText().toString());
         body.put("price", edtPrice.getText().toString());
+        body.put("desc", edtDesc.getText().toString());
         body.put("imageURL", edtLink.getText().toString());
         body.put("ownerAddress", edtLoc.getText().toString());
         body.put("auth",userID);
@@ -109,6 +110,7 @@ public class carDetail extends AppCompatActivity {
         body.put("model", edtModel.getText().toString());
         body.put("miles", edtMiles.getText().toString());
         body.put("price", edtPrice.getText().toString());
+        body.put("desc", edtDesc.getText().toString());
         body.put("imageURL", edtLink.getText().toString());
         body.put("ownerAddress", edtLoc.getText().toString());
         body.put("auth",userID);
