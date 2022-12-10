@@ -50,22 +50,6 @@ public class loginscreen extends AppCompatActivity {
 
         queue = Volley.newRequestQueue(this);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         edtLoginUsername = findViewById(R.id.edtLoginUsername);
         edtLoginPassword = findViewById(R.id.edtLoginPassword);
         btnLogin = findViewById(R.id.btnLogin);
@@ -164,8 +148,9 @@ public class loginscreen extends AppCompatActivity {
                             // Get the shared preferences and add the corresponding userID
                             String userID = response.getJSONObject("user").getString("_id");
                             sharedPreferences = getSharedPreferences("com.example.wealer", MODE_PRIVATE);
-                            sharedPreferences.edit().putString("activeUserID", userID);
-
+                            sharedPreferences.edit().putString("activeUserID", userID).apply();
+                            // sharedPreferences.edit().commit();
+                            Log.d("MYAPP", userID);
 
                             // Start the dashboard activity
                             intent = new Intent(this, DashBoard.class);
