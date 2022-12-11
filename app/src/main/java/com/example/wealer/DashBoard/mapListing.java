@@ -85,6 +85,9 @@ public class mapListing extends AppCompatActivity implements OnMapReadyCallback 
         }
         //opens the default browser with the link to the images of the car
         btnViewImage.setOnClickListener(view -> {
+            if (!imageURL.contains("https://") ||!imageURL.contains("http://"))
+                imageURL = "https://"+imageURL;
+
             Uri webpage = Uri.parse(imageURL);
             Intent intent2 = new Intent(Intent.ACTION_VIEW, webpage);
             Log.d("MyApp", intent2.toString());
@@ -94,6 +97,7 @@ public class mapListing extends AppCompatActivity implements OnMapReadyCallback 
                 //Page not found
                 Toast.makeText(this, "Error Retrieving Image!", Toast.LENGTH_SHORT).show();
             }
+
 
         });
         //opens the default email app and starts an email to the user of a listed car
