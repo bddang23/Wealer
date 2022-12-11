@@ -106,7 +106,8 @@ public class manageListing extends AppCompatActivity {
                                     carInfo.getString("imageURL"),
                                     (float) carInfo.getDouble("price"),
                                     carInfo.getString("ownerAddress"),
-                                    carInfo.getString("_id")
+                                    carInfo.getString("_id"),
+                                    carInfo.getString("ownerCoordinate")
                                     ));
                         }
 

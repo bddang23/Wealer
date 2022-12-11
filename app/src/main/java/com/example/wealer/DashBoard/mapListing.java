@@ -49,6 +49,7 @@ public class mapListing extends AppCompatActivity implements OnMapReadyCallback 
     String imageURL;
     String owner;
     String ownerAddress;
+    String ownerCoordinate;
     String make;
     String model;
     String price;
@@ -69,6 +70,7 @@ public class mapListing extends AppCompatActivity implements OnMapReadyCallback 
         //get car id from intent
         Intent intent =  getIntent();
         carID = intent.getStringExtra("carID");
+        ownerCoordinate = intent.getStringExtra("cord");
         ownerAddress = intent.getStringExtra("add");
         //get userID from sharedPref
         SharedPreferences sharedPref = getSharedPreferences("com.example.wealer", Context.MODE_PRIVATE);
@@ -85,9 +87,14 @@ public class mapListing extends AppCompatActivity implements OnMapReadyCallback 
         btnViewImage.setOnClickListener(view -> {
             Uri webpage = Uri.parse(imageURL);
             Intent intent2 = new Intent(Intent.ACTION_VIEW, webpage);
-            if (intent2.resolveActivity(getPackageManager()) != null) {
-                startActivity(intent2);
+            Log.d("MyApp", intent2.toString());
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }else{
+                //Page not found
+                Toast.makeText(this, "Error Retrieving Image!", Toast.LENGTH_SHORT).show();
             }
+
         });
         //opens the default email app and starts an email to the user of a listed car
         //set the subject to "Wealer Listing"
@@ -120,17 +127,11 @@ public class mapListing extends AppCompatActivity implements OnMapReadyCallback 
     public void onMapReady(@NonNull GoogleMap googleMap) {
         //get the map
         map = googleMap;
-        //get the cordinate for the marker
-        String[] cords= ownerAddress.split(",");
-        LatLng car = new LatLng(Double.parseDouble(cords[0]), Double.parseDouble(cords[1]));
-        Log.d("MyApp", "onMapReady: " +car.toString());
-        //add marker to map
-        map.addMarker(new MarkerOptions()
-                .title(make + " " + model)
-                .snippet(price)
-                .position(car));
-        //move map to the cords
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(car,13));
+
+
+
+
+
     }
 
 
@@ -154,6 +155,17 @@ public class mapListing extends AppCompatActivity implements OnMapReadyCallback 
                              txtPrice.setText(txtPrice.getText() + " " + jsonCar.getString("price"));
                              txtMile.setText(txtMile.getText() + " " + jsonCar.getString("miles"));
                              txtDescription.setText(jsonCar.getString("description"));
+
+                         //get the cordinate for the marker
+                         String[] cords= ownerCoordinate.split(",");
+                         LatLng car = new LatLng(Double.parseDouble(cords[0]), Double.parseDouble(cords[1]));
+                         //add marker to map
+                         map.addMarker(new MarkerOptions()
+                                 .title(make + " " + model)
+                                 .snippet("Price: " + price+ " - Location: " + ownerAddress )
+                                 .position(car));
+                         //move map to the cords
+                         map.moveCamera(CameraUpdateFactory.newLatLngZoom(car,13));
                      } catch (JSONException e) {
                          e.printStackTrace();
                      }

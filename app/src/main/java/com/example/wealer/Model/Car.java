@@ -8,9 +8,11 @@ public class Car {
     private String imageLink;
     private float price;
     private String address;
+    private String coordinate;
     private String ID;
 
-    public Car(String make, String model, int miles, String description, String imageLink, float price, String address,String ID) {
+    public Car(String make, String model, int miles, String description, String imageLink, float price, String address,String ID, String coordinate) {
+        this.coordinate = coordinate;
         this.make = make;
         this.model = model;
         this.miles = miles;
@@ -19,6 +21,14 @@ public class Car {
         this.price = price;
         this.address = address;
         this.ID = ID;
+    }
+
+    public String getCoordinate() {
+        return coordinate;
+    }
+
+    public void setCoordinate(String coordinate) {
+        this.coordinate = coordinate;
     }
 
     public String getMake() {

@@ -32,8 +32,6 @@ public class UserCarListing extends Fragment {
 
     private CarlistingOfUserBinding binding;
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -46,26 +44,11 @@ public class UserCarListing extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
     }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
