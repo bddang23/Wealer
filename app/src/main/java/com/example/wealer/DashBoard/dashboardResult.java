@@ -115,12 +115,10 @@ public class dashboardResult extends AppCompatActivity {
             Button btnView = view.findViewById(R.id.btnView);
 
 
-
-
-
             btnView.setOnClickListener(view1 -> {
                     Intent intent = new Intent(getApplicationContext(), mapListing.class);
                     intent.putExtra("carID",car.getID());
+                    intent.putExtra("cord",car.getCoordinate());
                     intent.putExtra("add",car.getAddress());
                     startActivity(intent);
 
@@ -140,24 +138,9 @@ public class dashboardResult extends AppCompatActivity {
 
             return view;
 
-
-
-
         }
 
-
-
-
-
-
-
     }
-
-
-
-
-
-
 
     public void getData(){
         String apiLink =  "https://project3-ceparker.onrender.com/car/";
@@ -177,8 +160,6 @@ public class dashboardResult extends AppCompatActivity {
                         Log.d("MYAPP", response.toString());
                         JSONArray carsData = response.getJSONArray("cars");
 
-
-
                                 for(int i = 0; i<carsData.length(); i++){
                                     JSONObject carInfo = carsData.getJSONObject(i);
                                     cars.add( new Car(carInfo.getString("make"),
@@ -188,7 +169,8 @@ public class dashboardResult extends AppCompatActivity {
                                             carInfo.getString("imageURL"),
                                             (float) carInfo.getDouble("price"),
                                             carInfo.getString("ownerAddress"),
-                                            carInfo.getString("_id")
+                                            carInfo.getString("_id"),
+                                            carInfo.getString("ownerCoordinate")
                                     ));
                                 }
 
