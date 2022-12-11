@@ -9,6 +9,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.wealer.DashBoard.DashBoard;
+import com.example.wealer.LoginSignUp.loginscreen;
 import com.example.wealer.Model.Car;
 import com.example.wealer.databinding.ActivityManageListingBinding;
 
@@ -49,10 +51,6 @@ public class manageListing extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-
-
-
         binding = ActivityManageListingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -64,36 +62,27 @@ public class manageListing extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("com.example.wealer", Context.MODE_PRIVATE);
         userName = sharedPreferences.getString("activeUserID", null);
-//        if (userName == null){
-//            Intent login = new Intent(this, loginscreen.class);
-//            startActivity(login);
-//        }
-        userName = "638d5e4e7e60fec557c9b45a";
+        if (userName == null){
+            Intent login = new Intent(this, loginscreen.class);
+            startActivity(login);
+        }
+//        userName = "638d5e4e7e60fec557c9b45a";
         queue = Volley.newRequestQueue(this);
 
 
         fetchUserCarData(userName);
-
-
-
-
-
-
-
-
-
-
-
-
 
         binding.fabAddCar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(getApplicationContext(), carDetail.class);
                 startActivity(intent);
-
-
             }
+        });
+
+        binding.btnReturntoDashBoard.setOnClickListener(v->{
+            Intent intent= new Intent(getApplicationContext(), DashBoard.class);
+            startActivity(intent);
         });
     }
 
@@ -107,8 +96,7 @@ public class manageListing extends AppCompatActivity {
                     try {
                         JSONObject results = response.getJSONObject("message");
                         JSONArray carsData = results.getJSONArray("cars");
-
-
+                        Log.d("Myapp", "fetchUserCarData: " + results.toString());
                         for(int i = 0; i<carsData.length(); i++){
                             JSONObject carInfo = carsData.getJSONObject(i);
                             cars.add( new Car(carInfo.getString("make"),
