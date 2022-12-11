@@ -35,6 +35,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 
 public class mapListing extends AppCompatActivity implements OnMapReadyCallback {
+
     RequestQueue queue;
     GoogleMap map;
     Button btnViewImage;
@@ -64,9 +65,11 @@ public class mapListing extends AppCompatActivity implements OnMapReadyCallback 
         txtMile = findViewById(R.id.txtMile);
         txtDescription = findViewById(R.id.txtDescription);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapView);
+        mapFragment.getMapAsync(this);
         //get car id from intent
         Intent intent =  getIntent();
         carID = intent.getStringExtra("carID");
+        ownerAddress = intent.getStringExtra("add");
         //get userID from sharedPref
         SharedPreferences sharedPref = getSharedPreferences("com.example.wealer", Context.MODE_PRIVATE);
         String userID = sharedPref.getString("activeUserID", null);
@@ -80,13 +83,10 @@ public class mapListing extends AppCompatActivity implements OnMapReadyCallback 
         }
         //opens the default browser with the link to the images of the car
         btnViewImage.setOnClickListener(view -> {
-            if(imageURL != null){
-                Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(imageURL));
-                if(i.resolveActivity(getPackageManager())!=null){
-                    startActivity(i);
-                }
-
+            Uri webpage = Uri.parse(imageURL);
+            Intent intent2 = new Intent(Intent.ACTION_VIEW, webpage);
+            if (intent2.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent2);
             }
         });
         //opens the default email app and starts an email to the user of a listed car
@@ -132,6 +132,8 @@ public class mapListing extends AppCompatActivity implements OnMapReadyCallback 
         //move map to the cords
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(car,13));
     }
+
+
     //method for get request
     public void fetchData(){
         //api string
@@ -141,7 +143,7 @@ public class mapListing extends AppCompatActivity implements OnMapReadyCallback 
                      try {
                          //populate textfields
                              JSONObject jsonCar = response.getJSONObject("message");
-                             ownerAddress = jsonCar.getString("ownerAddress");
+                             //ownerAddress = jsonCar.getString("ownerAddress");
                              owner = jsonCar.getString("owner");
                              imageURL = jsonCar.getString("imageURL");
                              make = jsonCar.getString("make");
