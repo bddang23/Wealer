@@ -121,6 +121,7 @@ public class dashboardResult extends AppCompatActivity {
             btnView.setOnClickListener(view1 -> {
                     Intent intent = new Intent(getApplicationContext(), mapListing.class);
                     intent.putExtra("carID",car.getID());
+                    intent.putExtra("add",car.getAddress());
                     startActivity(intent);
 
 
