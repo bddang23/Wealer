@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,7 +32,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class mapListing extends AppCompatActivity implements OnMapReadyCallback{
+import java.io.IOException;
+
+public class mapListing extends AppCompatActivity implements OnMapReadyCallback {
+
     RequestQueue queue;
     GoogleMap map;
     Button btnViewImage;
@@ -95,9 +99,9 @@ public class mapListing extends AppCompatActivity implements OnMapReadyCallback{
                              try{
                                   JSONObject jsonPerson = response.getJSONObject("message");
                                   String email = jsonPerson.getString("email");
-                                  Intent i = new Intent(Intent.ACTION_SENDTO);
-                                  i.setData(Uri.parse("mailto:"));
-                                  i.putExtra(Intent.EXTRA_EMAIL, email);
+                                  Intent i = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto",email,null));
+//                                  i.setData(Uri.parse("mailto:"));
+//                                  i.putExtra(Intent.EXTRA_EMAIL, email);
                                   i.putExtra(Intent.EXTRA_SUBJECT, "Wealer Listing");
                                   if(i.resolveActivity(getPackageManager())!=null){
                                       startActivity(i);
@@ -116,9 +120,10 @@ public class mapListing extends AppCompatActivity implements OnMapReadyCallback{
     public void onMapReady(@NonNull GoogleMap googleMap) {
         //get the map
         map = googleMap;
-        //get the cords for the marker
-        String[] cords = ownerAddress.split(",");
+        //get the cordinate for the marker
+        String[] cords= ownerAddress.split(",");
         LatLng car = new LatLng(Double.parseDouble(cords[0]), Double.parseDouble(cords[1]));
+        Log.d("MyApp", "onMapReady: " +car.toString());
         //add marker to map
         map.addMarker(new MarkerOptions()
                 .title(make + " " + model)
