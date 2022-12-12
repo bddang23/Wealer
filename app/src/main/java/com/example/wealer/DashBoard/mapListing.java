@@ -89,10 +89,11 @@ public class mapListing extends AppCompatActivity implements OnMapReadyCallback 
                 imageURL = "https://"+imageURL;
 
             Uri webpage = Uri.parse(imageURL);
-            Intent intent2 = new Intent(Intent.ACTION_VIEW, webpage);
+            Intent intent2 = new Intent(Intent.ACTION_VIEW);
+            intent2.setData(webpage);
             Log.d("MyApp", intent2.toString());
-            if (intent.resolveActivity(getPackageManager()) != null) {
-                startActivity(intent);
+            if (intent2.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent2);
             }else{
                 //Page not found
                 Toast.makeText(this, "Error Retrieving Image!", Toast.LENGTH_SHORT).show();
